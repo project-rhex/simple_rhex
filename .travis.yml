@@ -1,7 +1,8 @@
 language: ruby
 rvm:
   - 1.9.2
-
+before_script:
+  - "rake db:migrate"
 notifications:
   email:
     recipients:
