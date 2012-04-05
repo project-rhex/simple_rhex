@@ -6,5 +6,5 @@ before_script:
 notifications:
   email:
     recipients:
-      - andy@mitre.org
+      - healthcare-ci@googlegroups.com
     on_failure: change
