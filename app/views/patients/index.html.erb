@@ -1,16 +1,17 @@
 <h1>Listing patients</h1>
 
-<table>
-  <tr>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Date of birth</th>
-    <th>Gender</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Date of birth</th>
+      <th>Gender</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 <% @patients.each do |patient| %>
   <tr>
     <td><%= patient.first_name %></td>
