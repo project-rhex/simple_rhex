@@ -1,25 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1><%= @patient.last_name %>, <%= @patient.first_name %></h1>
+</div>
 
-<p>
-  <b>First name:</b>
-  <%= @patient.first_name %>
-</p>
+<% if notice %>
+<div class="alert alert-info">
+<%= notice %>
+</div>
+<% end %>
 
-<p>
-  <b>Last name:</b>
-  <%= @patient.last_name %>
-</p>
+<dl class="dl-horizontal">
+  <dt>Date of birth:</dt>
+  <dd><%= @patient.date_of_birth %></dd>
+  <dt>Gender:</dt>
+  <dd><%= @patient.gender %></dd>
+</dl>
 
-<p>
-  <b>Date of birth:</b>
-  <%= @patient.date_of_birth %>
-</p>
+<h2>Files</h2>
 
-<p>
-  <b>Gender:</b>
-  <%= @patient.gender %>
-</p>
+<table class="table table-striped">
+  <thead>
+  <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Content Type</th>
+      <th>File Size</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+<% @patient.documents.each do |document| %>
+  <tr>
+    <td><%= document.name %></td>
+    <td><%= document.description %></td>
+    <td><%= document.content_type %></td>
+    <td><%= number_to_human_size(document.file_size) %></td>
+    <td><%= link_to 'File', document.attachment_url, class: 'btn' %></td>
+    <td><%= link_to 'Edit', edit_patient_document_path(@patient, document), class: 'btn' %></td>
+    <td><%= link_to 'Destroy', patient_document_path(@patient, document), confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger' %></td>
+  </tr>
+<% end %>
+</table>
 
 
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+<%= link_to 'Upload a Document', new_patient_document_path(@patient), class: 'btn btn-primary' %>
+<%= link_to 'Back', patients_path, class: 'btn' %>
