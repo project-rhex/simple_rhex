@@ -11,15 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410153104) do
+ActiveRecord::Schema.define(:version => 20120410180102) do
 
   create_table "documents", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "attachment"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "patient_id"
+    t.string   "content_type"
+    t.integer  "file_size"
   end
 
   create_table "patients", :force => true do |t|

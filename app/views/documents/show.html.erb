@@ -11,8 +11,18 @@
 </p>
 
 <p>
+  <b>Content Type:</b>
+  <%= @document.content_type %>
+</p>
+
+<p>
+  <b>File Size:</b>
+  <%= @document.file_size %>
+</p>
+
+<p>
   <b>Attachment:</b>
-  <%= @document.attachment %>
+  <%= link_to 'File', @document.attachment_url %>
 </p>
 
 
