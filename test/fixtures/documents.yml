@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: CCD
+  description: A summary of care
+  patient: one
+
+two:
+  name: DICOM Image
+  description: An MRI
+  patient: two

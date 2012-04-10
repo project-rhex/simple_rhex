@@ -1,0 +1,27 @@
+<h1>Listing documents</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Attachment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @documents.each do |document| %>
+  <tr>
+    <td><%= document.name %></td>
+    <td><%= document.description %></td>
+    <td><%= document.attachment %></td>
+    <td><%= link_to 'Show', patient_document_path(@patient, document) %></td>
+    <td><%= link_to 'Edit', edit_patient_document_path(@patient, document) %></td>
+    <td><%= link_to 'Destroy', patient_document_path(@patient, document), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Document', new_patient_document_path(@patient) %>

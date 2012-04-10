@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @document.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @document.description %>
+</p>
+
+<p>
+  <b>Attachment:</b>
+  <%= @document.attachment %>
+</p>
+
+
+<%= link_to 'Edit', edit_patient_document_path(@patient, @document) %> |
+<%= link_to 'Back', patient_documents_path(@patient) %>

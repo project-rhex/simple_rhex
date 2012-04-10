@@ -1,5 +1,8 @@
 SimpleRhex::Application.routes.draw do
-  resources :patients
+
+  resources :patients do
+    resources :documents
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
