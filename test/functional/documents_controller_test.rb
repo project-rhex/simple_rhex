@@ -22,7 +22,7 @@ class DocumentsControllerTest < ActionController::TestCase
       post :create, patient_id: @document, document: @document.attributes
     end
 
-    assert_redirected_to patient_document_path(@patient, assigns(:document))
+    assert_redirected_to patient_path(@patient)
   end
 
   test "should show document" do
