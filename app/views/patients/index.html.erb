@@ -18,9 +18,9 @@
     <td><%= patient.last_name %></td>
     <td><%= patient.date_of_birth %></td>
     <td><%= patient.gender %></td>
-    <td><%= link_to 'Show', patient %></td>
-    <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
-    <td><%= link_to 'Destroy', patient, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', patient, class: 'btn' %></td>
+    <td><%= link_to 'Edit', edit_patient_path(patient), class: 'btn' %></td>
+    <td><%= link_to 'Destroy', patient, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger' %></td>
   </tr>
 <% end %>
 </table>
