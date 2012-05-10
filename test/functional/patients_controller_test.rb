@@ -3,6 +3,7 @@ require 'test_helper'
 class PatientsControllerTest < ActionController::TestCase
   setup do
     @patient = patients(:one)
+    @request.env['HTTP_X_AUTH'] = '{"info": {"email": "andy@mitre.org", "family_name": "Gregorowicz", "given_name": "Andy"}}'
   end
 
   test "should get index" do
