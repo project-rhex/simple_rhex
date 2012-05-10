@@ -3,6 +3,12 @@ Simple RHEx Web Application
 
 This is a basic web application that shows how OpenID Connect can be applied to the healthcare domain. It will allow for the upload and viewing of clinical documents.
 
+Requirements
+------------
+
+This application relies on the [OpenID Connect Gateway](https://github.com/project-rhex/openid_connect_gateway) for restricting access. The gateway will authenticate users before they
+can access the web application. Once the user is authenticated, they will be passed along to this application with the user information available in the HTTP_X_AUTH HTTP header.
+
 License
 =======
 
