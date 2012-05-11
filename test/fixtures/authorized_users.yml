@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: andy@mitre.org
+  patient: one
+
+two:
+  email: andy@mitre.org
+  patient: two
+
+three:
+  email: steve@mitre.org
+  patient: two

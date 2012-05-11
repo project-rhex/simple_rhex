@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410180102) do
+ActiveRecord::Schema.define(:version => 20120510205538) do
+
+  create_table "authorized_users", :force => true do |t|
+    t.string   "email"
+    t.integer  "patient_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "authorized_users", ["patient_id"], :name => "index_authorized_users_on_patient_id"
 
   create_table "documents", :force => true do |t|
     t.string   "name"
