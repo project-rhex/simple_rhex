@@ -1,8 +1,10 @@
 class PatientsController < ApplicationController
+  include ApplicationHelper
+  
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
+    @patients = Patient.accessible_to(current_user.email)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class PatientsController < ApplicationController
   # GET /patients/1
   # GET /patients/1.json
   def show
-    @patient = Patient.find(params[:id])
+    @patient = Patient.accessible_to(current_user.email).find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,13 +36,14 @@ class PatientsController < ApplicationController
 
   # GET /patients/1/edit
   def edit
-    @patient = Patient.find(params[:id])
+    @patient = Patient.accessible_to(current_user.email).find(params[:id])
   end
 
   # POST /patients
   # POST /patients.json
   def create
     @patient = Patient.new(params[:patient])
+    @patient.authorized_users.build(email: current_user.email)
 
     respond_to do |format|
       if @patient.save
@@ -56,7 +59,7 @@ class PatientsController < ApplicationController
   # PUT /patients/1
   # PUT /patients/1.json
   def update
-    @patient = Patient.find(params[:id])
+    @patient = Patient.accessible_to(current_user.email).readonly(false).find(params[:id])
 
     respond_to do |format|
       if @patient.update_attributes(params[:patient])
@@ -72,7 +75,7 @@ class PatientsController < ApplicationController
   # DELETE /patients/1
   # DELETE /patients/1.json
   def destroy
-    @patient = Patient.find(params[:id])
+    @patient = Patient.accessible_to(current_user.email).find(params[:id])
     @patient.destroy
 
     respond_to do |format|

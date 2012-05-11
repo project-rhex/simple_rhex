@@ -1,4 +1,5 @@
 class DocumentsController < ApplicationController
+  include ApplicationHelper
   before_filter :find_patient
   
   def index
@@ -73,6 +74,6 @@ class DocumentsController < ApplicationController
   
   private
   def find_patient
-    @patient = Patient.find(params[:patient_id])
+    @patient = Patient.accessible_to(current_user.email).find(params[:patient_id])
   end
 end
