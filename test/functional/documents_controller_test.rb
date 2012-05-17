@@ -4,7 +4,7 @@ class DocumentsControllerTest < ActionController::TestCase
   setup do
     @document = documents(:one)
     @patient = @document.patient
-    @request.env['HTTP_X_AUTH'] = '{"info": {"email": "andy@mitre.org", "family_name": "Gregorowicz", "given_name": "Andy"}}'
+    set_up_current_user
   end
 
   test "should get index" do

@@ -10,4 +10,8 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  
+  def set_up_current_user
+    @request.env['HTTP_X_AUTH'] = '{"info": {"email": "andy@mitre.org", "family_name": "Gregorowicz", "given_name": "Andy"}}'
+  end
 end

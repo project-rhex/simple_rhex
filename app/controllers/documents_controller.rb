@@ -1,6 +1,7 @@
+require 'belongs_to_patient'
+
 class DocumentsController < ApplicationController
-  include ApplicationHelper
-  before_filter :find_patient
+  include BelongsToPatient
   
   def index
     @documents = @patient.documents
@@ -70,10 +71,5 @@ class DocumentsController < ApplicationController
       format.html { redirect_to patient_documents_url(@patient) }
       format.json { head :no_content }
     end
-  end
-  
-  private
-  def find_patient
-    @patient = Patient.accessible_to(current_user.email).find(params[:patient_id])
   end
 end

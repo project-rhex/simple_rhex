@@ -43,6 +43,30 @@
 <% end %>
 </table>
 
+<h2>Authorized Users</h2>
+<ul id="authorized-users">
+  <% @patient.authorized_users.each do |au| -%>
+  <li><%= au.email %></li>
+  <% end -%>
+</ul>
 
 <%= link_to 'Upload a Document', new_patient_document_path(@patient), class: 'btn btn-primary' %>
+<%= link_to 'Authorize a User', "#addUser", "class" => 'btn', "data-toggle" => "modal" %>
 <%= link_to 'Back', patients_path, class: 'btn' %>
+
+<div class="modal hide" id="addUser">
+  <div class="modal-header">
+    <button class="close" data-dismiss="modal">×</button>
+    <h3>Add a user</h3>
+  </div>
+  <div class="modal-body">
+    <%= form_for([@patient, AuthorizedUser.new], :remote => true) do |f| -%>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+      <%= f.submit 'Add', :class => 'btn btn-primary'%>
+    <% end -%>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Close</a>
+  </div>
+</div>

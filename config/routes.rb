@@ -2,6 +2,7 @@ SimpleRhex::Application.routes.draw do
 
   resources :patients do
     resources :documents
+    resources :authorized_users, :only => [:create, :destroy]
   end
 
   # The priority is based upon order of creation:
