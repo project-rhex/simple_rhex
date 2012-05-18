@@ -10,5 +10,8 @@ class AuthorizedUsersController < ApplicationController
   end
 
   def destroy
+    au = @patient.authorized_users.find(params[:id])
+    au.destroy
+    redirect_to patient_url(@patient)
   end
 end

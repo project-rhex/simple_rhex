@@ -13,10 +13,10 @@ class AuthorizedUsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get destroy" do
-    pending 'not yet implemented'
-    get :destroy
-    assert_response :success
+  test "should remove an authorized user" do
+    assert_difference('AuthorizedUser.count', -1) do
+      delete :destroy, patient_id: @patient, id: @patient.authorized_users.first.id
+    end
+    assert_redirected_to @patient
   end
-
 end
