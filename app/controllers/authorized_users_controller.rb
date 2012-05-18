@@ -7,6 +7,7 @@ class AuthorizedUsersController < ApplicationController
     au = AuthorizedUser.new(params[:authorized_user])
     au.patient = @patient
     au.save
+    render :partial => 'shared/authorized_user', :collection => @patient.authorized_users
   end
 
   def destroy

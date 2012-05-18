@@ -1,8 +1,0 @@
-<% @patient.authorized_users.each do |au| -%>
-<li>
-    <%= au.email %>
-    <%= link_to(patient_authorized_user_path(@patient, au), confirm: 'Are you sure?', method: :delete) do %>
-    <i class="icon-remove-sign"></i>
-    <% end -%>
-</li>
-<% end -%>

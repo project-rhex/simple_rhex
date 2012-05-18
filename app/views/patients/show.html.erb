@@ -45,14 +45,7 @@
 
 <h2>Authorized Users</h2>
 <ul id="authorized-users">
-  <% @patient.authorized_users.each do |au| -%>
-  <li>
-    <%= au.email %>
-    <%= link_to(patient_authorized_user_path(@patient, au), confirm: 'Are you sure?', method: :delete) do %>
-    <i class="icon-remove-sign"></i>
-    <% end -%>
-  </li>
-  <% end -%>
+  <%= render :partial => 'shared/authorized_user', :collection => @patient.authorized_users %>
 </ul>
 
 <%= link_to 'Upload a Document', new_patient_document_path(@patient), class: 'btn btn-primary' %>

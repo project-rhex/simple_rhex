@@ -1,0 +1,6 @@
+<li>
+    <%= authorized_user.email %>
+    <%= link_to(patient_authorized_user_path(@patient, authorized_user), confirm: 'Are you sure?', method: :delete) do %>
+    <i class="icon-remove-sign"></i>
+    <% end -%>
+</li>
