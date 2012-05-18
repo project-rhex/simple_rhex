@@ -6,6 +6,11 @@ set_up_authorize_user = ->
   $('#new_authorized_user').bind("ajax:success", (evt, data, status, xhr) ->
     $('#addUser').modal('hide')
     $('#authorized-users').html(data)
+  ).bind("ajax:error", (evt, data, status, xhr) ->
+    $('#addUser').modal('hide')
+    error = $.parseJSON(data.responseText)
+    $('#authorizedUserMessages').html("Email #{error.email}")
+    $('#authorizedUserMessages').addClass('alert alert-error').fadeIn()
   )
 
 $(set_up_authorize_user)

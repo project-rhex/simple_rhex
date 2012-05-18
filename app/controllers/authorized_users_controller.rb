@@ -6,8 +6,11 @@ class AuthorizedUsersController < ApplicationController
   def create
     au = AuthorizedUser.new(params[:authorized_user])
     au.patient = @patient
-    au.save
-    render :partial => 'shared/authorized_user', :collection => @patient.authorized_users
+    if au.save
+      render :partial => 'shared/authorized_user', :collection => @patient.authorized_users
+    else
+      render :json => au.errors, :status => 400
+    end
   end
 
   def destroy

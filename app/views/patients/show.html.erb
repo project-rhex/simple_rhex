@@ -44,6 +44,8 @@
 </table>
 
 <h2>Authorized Users</h2>
+<div class="hide" id="authorizedUserMessages">
+</div>
 <ul id="authorized-users">
   <%= render :partial => 'shared/authorized_user', :collection => @patient.authorized_users %>
 </ul>
