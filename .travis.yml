@@ -2,6 +2,7 @@ language: ruby
 rvm:
   - 1.9.2
 before_script:
+  - mysql -e 'create database simple_rhex_test;'
   - "rake db:migrate"
 notifications:
   email:
