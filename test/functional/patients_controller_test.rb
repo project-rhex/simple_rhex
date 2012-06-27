@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PatientsControllerTest < ActionController::TestCase
   setup do
-    @patient = patients(:one)
+    @patient = patients(:joe)
     set_up_current_user
   end
 
@@ -28,6 +28,11 @@ class PatientsControllerTest < ActionController::TestCase
   test "should show patient" do
     get :show, id: @patient
     assert_response :success
+  end
+  
+  test "should restrict access to patients" do
+    get :show, id: patients(:bobby)
+    assert_response 404
   end
 
   test "should get edit" do

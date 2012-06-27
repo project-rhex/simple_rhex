@@ -20,7 +20,7 @@ class DocumentsControllerTest < ActionController::TestCase
 
   test "should create document" do
     assert_difference('Document.count') do
-      post :create, patient_id: @document, document: @document.attributes
+      post :create, patient_id: @patient, document: @document.attributes
     end
 
     assert_redirected_to patient_path(@patient)
@@ -29,6 +29,14 @@ class DocumentsControllerTest < ActionController::TestCase
   test "should show document" do
     get :show, id: @document, patient_id: @patient
     assert_response :success
+  end
+  
+  test "should restrict access to documents" do
+    doc = documents(:three)
+    patient = doc.patient
+    
+    get :show, id: doc, patient_id: patient
+    assert_response 404
   end
 
   test "should get edit" do

@@ -3,9 +3,14 @@
 one:
   name: CCD
   description: A summary of care
-  patient: one
+  patient: joe
 
 two:
   name: DICOM Image
   description: An MRI
-  patient: two
+  patient: jane
+
+three:
+  name: DICOM Image
+  description: An MRI
+  patient: bobby

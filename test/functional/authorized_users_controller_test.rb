@@ -2,7 +2,7 @@ require 'test_helper'
 
 class AuthorizedUsersControllerTest < ActionController::TestCase
   setup do
-    @patient = patients(:one)
+    @patient = patients(:joe)
     set_up_current_user
   end
   

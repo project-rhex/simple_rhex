@@ -1,6 +1,8 @@
 class PatientsController < ApplicationController
   include ApplicationHelper
-  
+
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+
   # GET /patients
   # GET /patients.json
   def index

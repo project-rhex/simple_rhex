@@ -1,13 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+joe:
   first_name: Joe
   last_name: Smith
   date_of_birth: 2012-03-30
   gender: M
 
-two:
+jane:
   first_name: Jane
   last_name: Doe
   date_of_birth: 2012-03-30
   gender: F
+
+bobby:
+  first_name: Bobby
+  last_name: Tables
+  date_of_birth: 2012-03-30
+  gender: M

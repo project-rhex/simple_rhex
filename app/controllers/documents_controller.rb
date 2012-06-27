@@ -3,6 +3,8 @@ require 'belongs_to_patient'
 class DocumentsController < ApplicationController
   include BelongsToPatient
   
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
+  
   def index
     @documents = @patient.documents
 
