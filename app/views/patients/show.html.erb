@@ -36,7 +36,7 @@
     <td><%= document.description %></td>
     <td><%= document.content_type %></td>
     <td><%= number_to_human_size(document.file_size) %></td>
-    <td><%= link_to 'File', document.attachment_url, class: 'btn' %></td>
+    <td><%= link_to 'File', download_patient_document_path(@patient, document), class: 'btn' %></td>
     <td><%= link_to 'Edit', edit_patient_document_path(@patient, document), class: 'btn' %></td>
     <td><%= link_to 'Destroy', patient_document_path(@patient, document), confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger' %></td>
   </tr>

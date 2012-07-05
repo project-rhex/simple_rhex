@@ -74,4 +74,9 @@ class DocumentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def download
+    @document = @patient.documents.find(params[:id])
+    send_file @document.attachment.path, :x_sendfile=>true
+  end
 end

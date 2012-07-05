@@ -1,7 +1,11 @@
 SimpleRhex::Application.routes.draw do
 
   resources :patients do
-    resources :documents
+    resources :documents do
+      member do
+        get 'download'
+      end
+    end
     resources :authorized_users, :only => [:create, :destroy]
   end
 
