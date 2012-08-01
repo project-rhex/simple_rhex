@@ -51,6 +51,8 @@
 </ul>
 
 <%= link_to 'Upload a Document', new_patient_document_path(@patient), class: 'btn btn-primary' %>
+<%= mail_to '', 'Email patient', subject: "Link to record of: #{@patient.last_name}, #{@patient.first_name}", 
+                                 body: patient_url(@patient), class: 'btn' %>
 <%= link_to 'Authorize a User', "#addUser", "class" => 'btn', "data-toggle" => "modal" %>
 <%= link_to 'Back', patients_path, class: 'btn' %>
 
