@@ -1,3 +1,6 @@
-class NoUserException
-  # To change this template use File | Settings | File Templates.
+#
+# Thrown when we don't find a current user
+#
+class NoUserException < Exception
+
 end

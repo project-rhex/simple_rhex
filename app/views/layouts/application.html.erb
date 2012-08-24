@@ -1,3 +1,12 @@
+<%
+require "no_user_exception"
+
+begin
+	user = current_user
+rescue NoUserException
+	user = nil
+end	
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +20,11 @@
   <div class="navbar-inner">
     <div class="container">
       <a class="brand" href="#">RHEx</a>
+	  <% if user %>
       <p class="pull-right">
-        Logged in as <%= current_user.given_name %> <%= current_user.family_name %>
+        Logged in as <%= user.given_name %> <%= user.family_name %>
       </p>
+	  <% end %>
     </div>
   </div>
 </div>
