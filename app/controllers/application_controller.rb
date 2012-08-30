@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     if production?
       render :text => "403 Forbidden", :status => 403
     else
-      render "no_user_exception"
+      render "no_user_exception", :status => 403
     end
     "no user"
   end

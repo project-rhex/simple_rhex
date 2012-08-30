@@ -52,4 +52,10 @@ class PatientsControllerTest < ActionController::TestCase
 
     assert_redirected_to patients_path
   end
+  
+  test "should get a 403 because I've removed the authorized user" do
+    @request.env.delete('HTTP_X_AUTH')
+    get :index
+    assert_response 403
+  end
 end
