@@ -1,5 +1,5 @@
 SimpleRhex::Application.routes.draw do
-
+  
   resources :patients do
     resources :documents do
       member do
@@ -8,6 +8,8 @@ SimpleRhex::Application.routes.draw do
     end
     resources :authorized_users, :only => [:create, :destroy]
   end
+  
+  root :to => 'patients#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
